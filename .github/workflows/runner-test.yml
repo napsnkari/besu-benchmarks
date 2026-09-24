@@ -1,0 +1,15 @@
+name: Self-Hosted Runner Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  runner-test:
+    runs-on: [self-hosted, docker-test]
+    timeout-minutes: 10
+
+    steps:
+      - name: Show runner details
+        run: |
+          echo "Runner name: $RUNNER_NAME"
+          echo "Hostname: $(hostname)"
